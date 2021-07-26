@@ -1,4 +1,4 @@
-import { Grid, Card, TextField, CardContent, Typography, Avatar } from '@material-ui/core'
+import { Grid, Card, TextField, CardContent, Typography, Avatar, CircularProgress } from '@material-ui/core'
 import { makeStyles } from '@material-ui/styles'
 import Autocomplete from '@material-ui/lab/Autocomplete'
 import { DateTimePicker, MuiPickersUtilsProvider } from '@material-ui/pickers'
@@ -177,7 +177,8 @@ const AddTask = () => {
                                     error={amountError}
                                 />
                             </Grid>
-                            {!usersLoading &&
+                            <Grid container justifyContent="center" xs={12} item>
+                            {!usersLoading ?
                                 <Grid xs={12} item>
                                     <Autocomplete
                                         required
@@ -198,11 +199,16 @@ const AddTask = () => {
                                             )
                                         }}
                                         onChange={(event, newValue) => {
-                                                setSelectedUser(newValue);
+                                            setSelectedUser(newValue);
                                         }}
                                     />
                                 </Grid>
+                                    :
+                                <Grid>
+                                    <CircularProgress />
+                                </Grid>
                             }
+                            </Grid>
                             <Grid container justifyContent="center" item xs={12}>
                                 <Button
                                     className={classes.button}

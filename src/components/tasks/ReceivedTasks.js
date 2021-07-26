@@ -1,7 +1,7 @@
 import React from 'react'
 import ReceivedTask from './ReceivedTask'
 import { useTask } from '../../contexts/TaskContext'
-import { Container, Typography } from '@material-ui/core'
+import { Container, Typography, Box, CircularProgress } from '@material-ui/core'
 import Masonry from 'react-masonry-css'
 const ReceivedTasks = () => {
     const { receivedTasks, receivedTasksLoading } = useTask()
@@ -26,8 +26,11 @@ const ReceivedTasks = () => {
             {/* Check if fetching data from firebase */}
             {   
                 (receivedTasksLoading) ?
-                    // replace it with material-ui loading thingy
-                    <div>loading</div>
+                    <Box display="flex">
+                        <Box m="auto">
+                            <CircularProgress />
+                        </Box>
+                    </Box>
                     :
                 [
                     (receivedTasks.length > 0) ?

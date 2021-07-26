@@ -1,4 +1,4 @@
-import { Grid } from "@material-ui/core"
+import { Box, CircularProgress } from "@material-ui/core"
 import { makeStyles } from '@material-ui/styles'
 const useStyles = makeStyles({
     root: {
@@ -11,9 +11,11 @@ const useStyles = makeStyles({
 const AuthLoading = () => {
     const classes = useStyles()
     return (
-        <Grid className={classes.root} container justifyContent="center" alignItems="center">
-            
-        </Grid>
+        <Box className={classes.root} display="flex">
+            <Box m="auto">
+                <CircularProgress />
+            </Box>
+        </Box>
     )
 }
 

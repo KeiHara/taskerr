@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container, Typography } from '@material-ui/core'
+import { CircularProgress, Container, Typography, Box } from '@material-ui/core'
 import { useTask } from '../../contexts/TaskContext'
 import Task from './Task'
 import Masonry from 'react-masonry-css'
@@ -22,22 +22,28 @@ const Tasks = () => {
                 My Tasks
             </Typography>
             {(tasksLoading) ?
-                <div>loading</div>
-            :
+                <Box display="flex">
+                    <Box m="auto">
+                        <CircularProgress />
+                    </Box>
+                </Box>
+                :
             [
-                (tasks.length > 0) ?
-                    <Masonry
-                        breakpointCols={breakpoints}
-                        className="my-masonry-grid"
-                        columnClassName="my-masonry-grid_column"
-                        key={0}
-                    >
-                        {tasks.map((task, index) => (
-                            <div key={index}>
-                                <Task task={task}/>
-                            </div>
-                        ))}
-                    </Masonry>
+                (tasks.length > 0) ?    
+                        <Masonry
+                            breakpointCols={breakpoints}
+                            className="my-masonry-grid"
+                            columnClassName="my-masonry-grid_column"
+                            key={0}
+                        >
+                            {tasks.map((task, index) => (
+                                <div key={index}>
+                                    <Task
+                                        task={task}
+                                    />
+                                </div>
+                            ))}
+                        </Masonry>
                         :
                     <Typography key={0}>No task to show</Typography>
             ]
