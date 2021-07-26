@@ -7,7 +7,6 @@ admin.initializeApp(functions.config().firebase);
 
 exports.userJoined = functions.auth.user()
     .onCreate(async user => {
-        //store stripe api secret_key on firebase functions config
         const stripe = require("stripe")(functions.config().stripe.secret_key);
         const stripeCustomer = await stripe.customers.create({
             email: user.email,
@@ -28,7 +27,6 @@ exports.userJoined = functions.auth.user()
     });
 
 exports.createStripeCheckout = functions.https.onCall(async (data, context) => {
-    //store stripe api secret_key on firebase functions config
     const stripe = require("stripe")(functions.config().stripe.secret_key);
     const session = await stripe.checkout.sessions.create({
         client_reference_id: context.auth.uid,
@@ -62,7 +60,6 @@ exports.stripeWebhook = functions.https.onRequest(async (req, res) => {
     let event;
 
     try {
-        //store stripe api secret key on firebase functions config
         const whSec = functions.config().stripe.webhook_secret;
         event = stripe.webhooks.constructEvent(
             req.rawBody,
@@ -123,23 +120,23 @@ exports.sendMoney = functions.runWith({ memory: '2GB' }).pubsub
 exports.sendEmail = functions.firestore.document('emails/{emailId}').onCreate(async (change, context) => {
     const sgMail = require('@sendgrid/mail');
     const moment = require('moment')
-    //store sendgrid api key on firebase functions config
-    const sgAPI = functions.config().sendgrid.key;
+    const sgAPI = await functions.config().sendgrid.key;
     sgMail.setApiKey(sgAPI);
     const postSnap = await admin.firestore().collection('emails').doc(context.params.emailId).get();
     const post = postSnap.data();
 
     switch (post.template) {
         case "onCreate":
-            var template_id = 'd-b53be0c9c1284a228f823689325792b3'
+            var template_id = "d-b53be0c9c1284a228f823689325792b3"
             break;
         case "onExpire":
-            var template_id = 'd-24126b2d2e954c4d854b138b8548f4c8'
+            var template_id = "d-24126b2d2e954c4d854b138b8548f4c8"
             break;
         case "onDone":
             var template_id = "d-73f6700fb96947679661c49d3db55968"
             break;
     }
+
     const email = {
         to: post.to.email,
         from: "capricorn2003sheep@gmail.com",
@@ -153,8 +150,5 @@ exports.sendEmail = functions.firestore.document('emails/{emailId}').onCreate(as
             due: moment(post.due.toDate()).format('MMMM Do YYYY h:mma')
         }
     }
-
-    await sgMail.send(email);
-
-    return { success: true }
+    sgMail.send(email)
 });
