@@ -1,5 +1,5 @@
 import React, { useContext, createContext } from 'react'
-import { useCollectionData, } from 'react-firebase-hooks/firestore'
+import { useCollectionData } from 'react-firebase-hooks/firestore'
 import { firestore } from '../config/fbconfig'
 import { useAuth } from './AuthContext'
 const TaskContext = createContext()
