@@ -140,10 +140,9 @@ exports.sendEmail = functions.firestore.document('emails/{emailId}').onCreate(as
             var template_id = "d-73f6700fb96947679661c49d3db55968"
             break;
     }
-
     const email = {
         to: post.to.email,
-        from: post.author.email,
+        from: "capricorn2003sheep@gmail.com",
         template_id,
         dynamic_template_data: {
             toDisplayName: post.to.displayName,
