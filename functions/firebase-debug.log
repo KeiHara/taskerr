@@ -1,0 +1,28 @@
+[debug] [2021-08-01T11:49:53.843Z] ----------------------------------------------------------------------
+[debug] [2021-08-01T11:49:53.850Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Kei Hara\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2021-08-01T11:49:53.851Z] CLI Version:   9.16.0
+[debug] [2021-08-01T11:49:53.852Z] Platform:      win32
+[debug] [2021-08-01T11:49:53.852Z] Node Version:  v16.2.0
+[debug] [2021-08-01T11:49:53.865Z] Time:          Sun Aug 01 2021 23:49:53 GMT+1200 (New Zealand Standard Time)
+[debug] [2021-08-01T11:49:53.865Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2021-08-01T11:49:54.038Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2021-08-01T11:49:54.038Z] > authorizing via signed-in user (capricorn2003sheep@gmail.com)
+[debug] [2021-08-01T11:49:54.038Z] [iam] checking project taskerr-c3026 for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2021-08-01T11:49:54.042Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/taskerr-c3026:testIamPermissions  
+ {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2021-08-01T11:49:54.623Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sun, 01 Aug 2021 11:49:54 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","server-timing":"gfet4t7; dur=190","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-08-01T11:49:54.631Z] >>> HTTP REQUEST POST https://iam.googleapis.com/v1/projects/taskerr-c3026/serviceAccounts/taskerr-c3026@appspot.gserviceaccount.com:testIamPermissions  
+ {"permissions":["iam.serviceAccounts.actAs"]}
+[debug] [2021-08-01T11:49:55.264Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sun, 01 Aug 2021 11:49:54 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-08-01T11:49:55.269Z] > refreshing access token with scopes: []
+[debug] [2021-08-01T11:49:55.270Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2021-08-01T11:49:55.600Z] <<< HTTP RESPONSE 200 {"cache-control":"no-cache, no-store, max-age=0, must-revalidate","pragma":"no-cache","date":"Sun, 01 Aug 2021 11:49:55 GMT","expires":"Mon, 01 Jan 1990 00:00:00 GMT","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-08-01T11:49:55.649Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/taskerr-c3026 [none]
+[debug] [2021-08-01T11:49:56.229Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/taskerr-c3026 200
+[debug] [2021-08-01T11:49:56.230Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/taskerr-c3026 {"projectId":"taskerr-c3026","projectNumber":"174364874652","displayName":"taskerr","name":"projects/taskerr-c3026","resources":{"hostingSite":"taskerr-c3026","storageBucket":"taskerr-c3026.appspot.com","locationId":"us-central"},"state":"ACTIVE"}
+[info] 
+[info] === Deploying to 'taskerr-c3026'...
+[info] 
+[info] i  deploying functions, hosting 
