@@ -8,7 +8,7 @@ import { Elements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
 
 //create .env.local and paste ur own api key for stripe 
-const publicKey = process.env.REACT_APP_STRIPE_PUBLIC_KEY
+const publicKey = "pk_test_51JCx2FF8eF8urKgjatIySmGTW2Fhf7vb1rt9VYjfzsKHldLSdWify7axMDpdItCGNLZ1vs5imzeFuoiM7oXJMlsS00P0zRJgNO"
 
 const stripePromise = loadStripe(publicKey)
 ReactDOM.render(
